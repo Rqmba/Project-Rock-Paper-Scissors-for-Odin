@@ -14,6 +14,35 @@ function getComputerChoice() {
   }
 }
 
+function getHumanChoice() {
+  let sign = prompt("What's your choice ?");
+
+  if (sign.toLowerCase() === "rock") {
+    console.log("You choose Rock !");
+  } else if (sign.toLowerCase() === "paper") {
+    console.log("You choose Paper !");
+  } else if (sign.toLowerCase() === "scissors") {
+    console.log("You choose Scissors !");
+  } else {
+    console.log("Invalid choice");
+  }
+}
+
 playButton.addEventListener("click", () => {
-  console.log("Computer choose : " + getComputerChoice());
+  getHumanChoice();
 });
+//   let sign = prompt("What's your choice ?");
+
+//   if (sign.toLowerCase() === "rock") {
+//       console.log("You choose Rock !")
+//   } else if (sign.toLowerCase() === "paper") {
+//     console.log("You choose Paper !")
+// } else {
+//   (sign.toLowerCase() === "scissors")
+//     console.log("You choose Scissors !")
+
+// }
+
+// playButton.addEventListener("click", () => {
+//   console.log("Computer choose : " + getComputerChoice());
+// });
