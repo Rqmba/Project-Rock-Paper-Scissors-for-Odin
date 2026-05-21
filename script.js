@@ -30,6 +30,7 @@ function getHumanChoice() {
 
 playButton.addEventListener("click", () => {
   getHumanChoice();
+  console.log(getComputerChoice());
 });
 
 let humanScore = 0;
