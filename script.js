@@ -31,18 +31,8 @@ function getHumanChoice() {
 playButton.addEventListener("click", () => {
   getHumanChoice();
 });
-//   let sign = prompt("What's your choice ?");
 
-//   if (sign.toLowerCase() === "rock") {
-//       console.log("You choose Rock !")
-//   } else if (sign.toLowerCase() === "paper") {
-//     console.log("You choose Paper !")
-// } else {
-//   (sign.toLowerCase() === "scissors")
-//     console.log("You choose Scissors !")
+let humanScore = 0;
+let computerScore = 0;
 
-// }
-
-// playButton.addEventListener("click", () => {
-//   console.log("Computer choose : " + getComputerChoice());
-// });
+function playRound(humanChoice, computerChoiCe) {}
