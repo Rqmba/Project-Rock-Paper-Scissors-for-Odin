@@ -18,22 +18,49 @@ function getHumanChoice() {
   let sign = prompt("What's your choice ?");
 
   if (sign.toLowerCase() === "rock") {
-    console.log("You choose Rock !");
+    console.log("Rock");
+    return "Rock";
   } else if (sign.toLowerCase() === "paper") {
-    console.log("You choose Paper !");
+    console.log("Paper");
+    return "Paper";
   } else if (sign.toLowerCase() === "scissors") {
-    console.log("You choose Scissors !");
+    console.log("Scissors");
+    return "Scissors";
   } else {
-    console.log("Invalid choice");
+    return "Invalid Choice";
   }
 }
 
 playButton.addEventListener("click", () => {
   getHumanChoice();
   console.log(getComputerChoice());
+  playRound();
 });
 
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(humanChoice, computerChoiCe) {}
+function playRound(humanChoice, computerChoice) {
+  console.log(humanChoice, computerChoice);
+  if (humanChoice === "Rock" && computerChoice === "Paper") {
+    console.log("You lose");
+  } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+    console.log("You lose");
+  } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+    console.log("You lose");
+  } else if (humanChoice === computerChoice) {
+    console.log("Draw");
+  } else {
+    console.log("You win");
+  }
+}
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+// playButton.addEventListener("click", () => {
+//   getHumanChoice();
+//   console.log(getComputerChoice());
+//   playRound();
+// });
