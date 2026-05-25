@@ -35,17 +35,11 @@ function getHumanChoice() {
   }
 }
 
-playButton.addEventListener("click", () => {
-  getHumanChoice();
-  getComputerChoice();
-  playRound();
-});
-
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-  console.log(humanChoice, computerChoice);
+  console.log("Player: " + humanChoice + " & Computer: " + computerChoice);
   if (humanChoice === "Rock" && computerChoice === "Paper") {
     console.log("You lose");
   } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
@@ -58,13 +52,10 @@ function playRound(humanChoice, computerChoice) {
     console.log("You win");
   }
 }
-// const humanSelection = getHumanChoice();
-// const computerSelection = getComputerChoice();
 
-// playRound(humanSelection, computerSelection);
+playButton.addEventListener("click", () => {
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
 
-// playButton.addEventListener("click", () => {
-//   getHumanChoice();
-//   console.log(getComputerChoice());
-//   playRound();
-// });
+  playRound(humanSelection, computerSelection);
+});
