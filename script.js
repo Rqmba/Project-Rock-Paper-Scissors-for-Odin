@@ -5,11 +5,14 @@ function getComputerChoice() {
   const random = Math.random();
 
   if (random <= 0.33) {
+    console.log("Computer : Rock");
     return "Rock";
   } else if (random <= 0.66) {
+    console.log("Computer : Paper");
     return "Paper";
   } else {
     random <= 0.33;
+    console.log("Computer : Scissors");
     return "Scissors";
   }
 }
@@ -18,22 +21,23 @@ function getHumanChoice() {
   let sign = prompt("What's your choice ?");
 
   if (sign.toLowerCase() === "rock") {
-    console.log("Rock");
+    console.log("Player : Rock");
     return "Rock";
   } else if (sign.toLowerCase() === "paper") {
-    console.log("Paper");
+    console.log("Player : Paper");
     return "Paper";
   } else if (sign.toLowerCase() === "scissors") {
-    console.log("Scissors");
+    console.log("Player : Scissors");
     return "Scissors";
   } else {
+    console.log("Invalid Choice");
     return "Invalid Choice";
   }
 }
 
 playButton.addEventListener("click", () => {
   getHumanChoice();
-  console.log(getComputerChoice());
+  getComputerChoice();
   playRound();
 });
 
@@ -54,10 +58,10 @@ function playRound(humanChoice, computerChoice) {
     console.log("You win");
   }
 }
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+// playRound(humanSelection, computerSelection);
 
 // playButton.addEventListener("click", () => {
 //   getHumanChoice();
