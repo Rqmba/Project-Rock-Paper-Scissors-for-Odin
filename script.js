@@ -11,7 +11,6 @@ function getComputerChoice() {
     console.log("Computer : Paper");
     return "Paper";
   } else {
-    random <= 0.33;
     console.log("Computer : Scissors");
     return "Scissors";
   }
@@ -44,11 +43,11 @@ function playRound(humanChoice, computerChoice) {
     console.log("You lose");
     return "loose";
   } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
-    return "loose";
     console.log("You lose");
+    return "loose";
   } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
-    return "loose";
     console.log("You lose");
+    return "loose";
   } else if (humanChoice === computerChoice) {
     console.log("Draw");
     return "draw";
@@ -58,24 +57,27 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function playGame(choice) {
-  if (choice === "win") {
-    console.log("Round : " + choice);
-    humanScore++;
-  } else if (choice === "loose") {
-    console.log("Round : " + choice);
-    computerScore++;
-  } else {
-    console.log("Draw");
+function playGame() {
+  for (let i = 0; i <= 4; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    const result = playRound(humanSelection, computerSelection);
+    if (result === "win") {
+      humanScore++;
+      console.log(
+        `Human Score : ${humanScore} | Computer Score : ${computerScore}`,
+      );
+    } else if (result === "loose") {
+      computerScore++;
+      console.log(
+        `Computer Score : ${computerScore} | Human Score : ${humanScore}`,
+      );
+    } else {
+      console.log("Draw");
+    }
   }
 }
 
 playButton.addEventListener("click", () => {
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  playGame(playRound(humanSelection, computerSelection));
-  console.log(
-    "Your Score : " + humanScore,
-    "Computer Score : " + computerScore,
-  );
+  playGame();
 });
