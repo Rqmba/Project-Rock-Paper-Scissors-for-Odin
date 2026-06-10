@@ -1,5 +1,8 @@
-const playButton = document.querySelector("#playButton");
-const log = document.querySelector("#log");
+// const playButton = document.querySelector("#playButton");
+// const log = document.querySelector("#log");
+const rockButton = document.querySelector("#Rock");
+const paperButton = document.querySelector("#Paper");
+const scissorsButton = document.querySelector("#Scissors");
 
 function getComputerChoice() {
   const random = Math.random();
@@ -16,23 +19,35 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  let sign = prompt("What's your choice ?");
+function handleChoice(choice) {
+  const computerChoice = getComputerChoice(); // musicien 1
+  const result = playRound(choice, computerChoice); // musicien 2
 
-  if (sign.toLowerCase() === "rock") {
-    console.log("Player : Rock");
-    return "Rock";
-  } else if (sign.toLowerCase() === "paper") {
-    console.log("Player : Paper");
-    return "Paper";
-  } else if (sign.toLowerCase() === "scissors") {
-    console.log("Player : Scissors");
-    return "Scissors";
+  if (result === "win") {
+    humanScore++;
+    console.log(
+      `Human Score : ${humanScore} | Computer Score : ${computerScore}`,
+    );
+  } else if (result === "loose") {
+    computerScore++;
+    console.log(
+      `Computer Score : ${computerScore} | Human Score : ${humanScore}`,
+    );
   } else {
-    console.log("Invalid Choice");
-    return "Invalid Choice";
+    console.log(
+      `Human Score : ${humanScore} | Computer Score : ${computerScore}`,
+    );
+  }
+  if (humanScore === 5) {
+    console.log("You win the game !");
+  } else if (computerScore === 5) {
+    console.log("You loose the game!");
   }
 }
+
+rockButton.addEventListener("click", () => handleChoice("Rock"));
+paperButton.addEventListener("click", () => handleChoice("Paper"));
+scissorsButton.addEventListener("click", () => handleChoice("Scissors"));
 
 let humanScore = 0;
 let computerScore = 0;
@@ -89,6 +104,6 @@ function playGame() {
   }
 }
 
-playButton.addEventListener("click", () => {
-  playGame();
-});
+// playButton.addEventListener("click", () => {
+//   playGame();
+// });
