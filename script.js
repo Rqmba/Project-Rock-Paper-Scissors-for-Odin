@@ -6,6 +6,8 @@ const computerScoreDisplay = document.querySelector("#computerScore");
 const playerChoiceDisplay = document.querySelector("#playerChoice");
 const computerChoiceDisplay = document.querySelector("#computerChoice");
 const roundResultDisplay = document.querySelector("#roundResult");
+const replayButton = document.querySelector("#Replay");
+const choiceButtons = document.querySelectorAll("button");
 
 function getComputerChoice() {
   const random = Math.random();
@@ -39,9 +41,11 @@ function handleChoice(choice) {
   computerScoreDisplay.textContent = `Computer Score : ${computerScore}`;
   if (humanScore === 5) {
     // console.log("You win the game !");
+    setButtonsState(true);
     playerScoreDisplay.textContent = `You win the game !`;
   } else if (computerScore === 5) {
     // console.log("You loose the game!");
+    setButtonsState(true);
     computerScoreDisplay.textContent = `You loose the game...`;
   }
 }
@@ -77,3 +81,21 @@ function playRound(humanChoice, computerChoice) {
     return "win";
   }
 }
+
+function replay() {
+  setButtonsState(false);
+  humanScore = 0;
+  computerScore = 0;
+  playerChoiceDisplay.textContent = "";
+  computerChoiceDisplay.textContent = "";
+  roundResultDisplay.textContent = "";
+  playerScoreDisplay.textContent = "";
+  computerScoreDisplay.textContent = "";
+}
+
+function setButtonsState(isDisabled) {
+  const buttons = [rockButton, paperButton, scissorsButton];
+  buttons.forEach((b) => (b.disabled = isDisabled));
+}
+
+replayButton.addEventListener("click", () => replay());
